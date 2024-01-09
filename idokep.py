@@ -14,7 +14,7 @@ args = parser.parse_args()
 city = args.city
 url = f"https://www.idokep.hu/idojaras/{city}"
 
-r = requests.get(url)
+r = requests.get(url,verify=False)
 soup = BeautifulSoup(r.text, "html.parser")
 container = soup.find(class_="ik daily-forecast-container")
 columns = container.find_all(class_="ik dailyForecastCol")
